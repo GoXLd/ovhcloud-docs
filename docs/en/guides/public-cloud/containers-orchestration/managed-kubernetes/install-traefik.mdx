@@ -4,13 +4,14 @@ description: Find out how to install Traefik as an Ingress Controller on OVHclou
 lastUpdated: 2026-10-02
 ---
 
+## Objective
+
 This tutorial explains how to install [Traefik](https://github.com/traefik/traefik) as an Ingress Controller on your OVHcloud Managed Kubernetes Service.
 
-## Before you begin
+## Requirements
 
-This tutorial presupposes that you already have a working OVHcloud Managed Kubernetes cluster and some basic knowledge of how to operate it. If you want to know more about these topics, please refer to the [OVHcloud Managed Kubernetes Service Quickstart](/guides/public-cloud/containers-orchestration/managed-kubernetes/deploy-hello-world).
-
-You also need to have [Helm](https://helm.sh/docs/intro/install/) installed on your workstation. Please refer to the [Installing and using Helm on OVHcloud Managed Kubernetes](/guides/public-cloud/containers-orchestration/managed-kubernetes/install-helm) tutorial.
+- A working OVHcloud Managed Kubernetes cluster and basic knowledge of how to operate it (see the [OVHcloud Managed Kubernetes Service Quickstart](/guides/public-cloud/containers-orchestration/managed-kubernetes/deploy-hello-world))
+- [Helm](https://helm.sh/docs/intro/install/) installed on your workstation (see the [Installing and using Helm on OVHcloud Managed Kubernetes](/guides/public-cloud/containers-orchestration/managed-kubernetes/install-helm) tutorial)
 
 ## Ingress resources and Traefik
 
@@ -30,7 +31,9 @@ The Kubernetes community [retired ingress-nginx in March 2026](https://kubernete
 This guide previously covered ingress-nginx and now uses Traefik. Existing ingress-nginx users should follow the [Traefik migration guide](https://doc.traefik.io/traefik/migrate/nginx-to-traefik/), review their controller-specific annotations, and test the migration before removing their current controller.
 :::
 
-## Installing the Traefik Helm chart
+## Instructions
+
+### Installing the Traefik Helm chart
 
 For this tutorial, we are using the official [Traefik Helm chart](https://github.com/traefik/traefik-helm-chart) with its default configuration.
 
@@ -63,7 +66,7 @@ export INGRESS_URL=$(kubectl get service traefik -n traefik -o jsonpath='{.statu
 echo "Ingress URL: http://$INGRESS_URL/"
 ```
 
-## Testing Traefik with an Ingress
+### Testing Traefik with an Ingress
 
 To test Traefik, you can, for example, [install WordPress](/guides/public-cloud/containers-orchestration/managed-kubernetes/install-wordpress) on your cluster. Then create an `ingress.yml` file with the following content:
 
