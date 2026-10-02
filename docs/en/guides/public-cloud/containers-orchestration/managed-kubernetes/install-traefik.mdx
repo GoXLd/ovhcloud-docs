@@ -1,7 +1,7 @@
 ---
 title: Installing Traefik on OVHcloud Managed Kubernetes
 description: Find out how to install Traefik as an Ingress Controller on OVHcloud Managed Kubernetes
-lastUpdated: 2026-07-29
+lastUpdated: 2026-10-02
 ---
 
 This tutorial explains how to install [Traefik](https://github.com/traefik/traefik) as an Ingress Controller on your OVHcloud Managed Kubernetes Service.
@@ -10,11 +10,11 @@ This tutorial explains how to install [Traefik](https://github.com/traefik/traef
 
 This tutorial presupposes that you already have a working OVHcloud Managed Kubernetes cluster and some basic knowledge of how to operate it. If you want to know more about these topics, please refer to the [OVHcloud Managed Kubernetes Service Quickstart](/guides/public-cloud/containers-orchestration/managed-kubernetes/deploy-hello-world).
 
-You also need to have [Helm](https://helm.sh/docs/intro/install/) installed on your workstation. Please refer to the [How to install Helm on OVHcloud Managed Kubernetes Service](/guides/public-cloud/containers-orchestration/managed-kubernetes/install-helm) tutorial.
+You also need to have [Helm](https://helm.sh/docs/intro/install/) installed on your workstation. Please refer to the [Installing and using Helm on OVHcloud Managed Kubernetes](/guides/public-cloud/containers-orchestration/managed-kubernetes/install-helm) tutorial.
 
 ## Ingress resources and Traefik
 
-In Kubernetes, an Ingress resource allows you to access your Services from outside the cluster. The goal is to avoid creating one Load Balancer per Service and use a single Load Balancer for the Ingress Controller instead.
+In Kubernetes, an Ingress resource allows you to access your Services from outside the cluster. The goal is to use a single Load Balancer for the Ingress Controller instead of creating one Load Balancer per Service.
 
 ![Kubernetes Ingress](/images/public-cloud/containers-orchestration/managed-kubernetes/installing-nginx-ingress/ingress.png)
 
@@ -22,7 +22,7 @@ An Ingress is implemented by a third-party Ingress Controller that watches the K
 
 In this tutorial, you will install Traefik Proxy. Traefik routes incoming requests to backend Services according to the rules defined in your Ingress resources.
 
-After deploying Traefik, you will also have an OVHcloud Public Cloud Load Balancer. The Load Balancer routes external traffic to Traefik, which then forwards each request to the appropriate backend Service.
+Deploying Traefik also creates an OVHcloud Public Cloud Load Balancer. The Load Balancer routes external traffic to Traefik, which then forwards each request to the appropriate backend Service.
 
 :::warning
 The Kubernetes community [retired ingress-nginx in March 2026](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/). The project no longer receives releases, bug fixes, or security updates and should not be deployed for new workloads.
@@ -50,7 +50,7 @@ Check that the Traefik Deployment is available:
 kubectl rollout status deployment/traefik -n traefik
 ```
 
-The `LoadBalancer` creation is asynchronous and can take several minutes. Check the Service until an address appears in the `EXTERNAL-IP` column:
+The `LoadBalancer` creation is asynchronous and can take several minutes. Watch the Service until an address appears in the `EXTERNAL-IP` column:
 
 ```bash
 kubectl get service traefik -n traefik --watch
@@ -103,14 +103,15 @@ Check that the Ingress has an address:
 kubectl get ingress ingress
 ```
 
-If you point your browser to `http://$INGRESS_URL/`, you will see your WordPress:
+Open `http://$INGRESS_URL/` in your browser to see your WordPress site:
 
 <img className="thumbnail" alt="WordPress using Ingress" src="/images/public-cloud/containers-orchestration/managed-kubernetes/installing-nginx-ingress/installing-ingress-01.png" loading="lazy" />
 
 ## Go further
 
-- Read the [Traefik Kubernetes Ingress documentation](https://doc.traefik.io/traefik/reference/routing-configuration/kubernetes/ingress/).
-- Learn how to [use the OVHcloud Public Cloud Load Balancer with MKS](/guides/public-cloud/containers-orchestration/managed-kubernetes/expose-applications-using-load-balancer).
+Read the [Traefik Kubernetes Ingress documentation](https://doc.traefik.io/traefik/reference/routing-configuration/kubernetes/ingress/).
+
+Learn how to [use the OVHcloud Public Cloud Load Balancer with Managed Kubernetes Service](/guides/public-cloud/containers-orchestration/managed-kubernetes/expose-applications-using-load-balancer).
 
 [[fragment:professional-services|en]]
 
