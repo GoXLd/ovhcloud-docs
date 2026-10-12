@@ -8,7 +8,7 @@
 - **theme:** make file download links visible (#975)
 
 ### Documentation
-- EU: 19 guides across de, en, es, fr, it, pl, pt
+- EU: 24 guides across de, en, es, fr, it, pl, pt
 
 ## 2026.10.09
 
