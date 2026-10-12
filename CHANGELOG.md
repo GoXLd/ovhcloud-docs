@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026.10.12
+
+### Fixes
+
+#### All regions
+- **theme:** make file download links visible (#975)
+
+### Documentation
+- EU: 7 guides across de, en, es, fr, it, pl, pt
+
 ## 2026.10.09
 
 ### Features
