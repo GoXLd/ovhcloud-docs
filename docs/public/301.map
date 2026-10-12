@@ -639,3 +639,12 @@
 /it/guides/web-cloud/managed-hosting/mainwp-site-management /it/guides/web-cloud/managed-hosting/wordpress;
 /pl/guides/web-cloud/managed-hosting/mainwp-site-management /pl/guides/web-cloud/managed-hosting/wordpress;
 /pt/guides/web-cloud/managed-hosting/mainwp-site-management /pt/guides/web-cloud/managed-hosting/wordpress;
+
+# FinOps section removed: export billing data guide moved to Manage and Operate > Cost Center
+/en/guides/account-and-service-management/finops/export-billing-data-to-bucket /en/guides/manage-and-operate/cost-center/export-billing-data-to-bucket;
+/fr/guides/account-and-service-management/finops/export-billing-data-to-bucket /fr/guides/manage-and-operate/cost-center/export-billing-data-to-bucket;
+/de/guides/account-and-service-management/finops/export-billing-data-to-bucket /de/guides/manage-and-operate/cost-center/export-billing-data-to-bucket;
+/es/guides/account-and-service-management/finops/export-billing-data-to-bucket /es/guides/manage-and-operate/cost-center/export-billing-data-to-bucket;
+/it/guides/account-and-service-management/finops/export-billing-data-to-bucket /it/guides/manage-and-operate/cost-center/export-billing-data-to-bucket;
+/pl/guides/account-and-service-management/finops/export-billing-data-to-bucket /pl/guides/manage-and-operate/cost-center/export-billing-data-to-bucket;
+/pt/guides/account-and-service-management/finops/export-billing-data-to-bucket /pt/guides/manage-and-operate/cost-center/export-billing-data-to-bucket;
