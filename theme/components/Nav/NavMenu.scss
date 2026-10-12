@@ -131,23 +131,15 @@
 }
 
 // Fixed language label (single-locale regions, see Nav/FixedLocale.tsx): same
-// look as the language dropdown trigger, but nothing happens on hover or click.
+// look as the language dropdown trigger, without its arrow, and nothing happens
+// on hover or click.
 .rp-nav-lang-fixed {
   .rp-nav-menu__item__container {
     cursor: default;
   }
 
-  &.rp-nav-menu__item:hover {
-    .rp-nav-menu__item__container {
-      text-decoration: none;
-    }
-    .rp-nav-menu__item__icon {
-      transform: none;
-    }
-  }
-
-  .rp-nav-menu__item__icon {
-    opacity: 0.5;
+  &.rp-nav-menu__item:hover .rp-nav-menu__item__container {
+    text-decoration: none;
   }
 
   &.rp-nav-screen-langs {

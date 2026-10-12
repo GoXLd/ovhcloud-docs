@@ -1,4 +1,3 @@
-import { IconArrowDown, SvgWrapper } from '@rspress/core/theme';
 import clsx from 'clsx';
 
 // Injected by `source.define` in rspress.config.ts / rspress.config.build.ts
@@ -61,7 +60,7 @@ function Label() {
   );
 }
 
-/** Desktop navbar: same box as the language dropdown, but inert. */
+/** Desktop navbar: same place and type as the language dropdown, but inert. */
 export function NavFixedLocale() {
   if (!LOCALE_INDICATOR) return null;
   return (
@@ -71,11 +70,6 @@ export function NavFixedLocale() {
         title={LOCALE_INDICATOR.tooltip}
       >
         <Label />
-        <SvgWrapper
-          icon={IconArrowDown}
-          className="rp-nav-menu__item__icon"
-          aria-hidden="true"
-        />
       </span>
     </li>
   );
