@@ -10169,6 +10169,15 @@
     "pl": "Settings",
     "pt": "Settings"
   },
+  "sidebar.gen.publicCloudDataPlatformAnalyzeOnlineStoreSales": {
+    "fr": "Analyser les ventes d'une boutique en ligne avec Apache Superset",
+    "en": "Analyse online store sales with Apache Superset",
+    "de": "Analyse online store sales with Apache Superset",
+    "es": "Analyse online store sales with Apache Superset",
+    "it": "Analyse online store sales with Apache Superset",
+    "pl": "Analyse online store sales with Apache Superset",
+    "pt": "Analyse online store sales with Apache Superset"
+  },
   "sidebar.gen.publicCloudDataPlatformAnalyzer": {
     "fr": "Analyzer",
     "en": "Analyzer",
@@ -11689,6 +11698,15 @@
     "it": "Customize your first app",
     "pl": "Customize your first app",
     "pt": "Customize your first app"
+  },
+  "sidebar.gen.publicCloudDataPlatformTutorialsEcommerceSalesSupersetDashboard": {
+    "fr": "Construire un dashboard des ventes d'une boutique en ligne dans Superset",
+    "en": "Build a sales dashboard for an online store in Superset",
+    "de": "Build a sales dashboard for an online store in Superset",
+    "es": "Build a sales dashboard for an online store in Superset",
+    "it": "Build a sales dashboard for an online store in Superset",
+    "pl": "Build a sales dashboard for an online store in Superset",
+    "pt": "Build a sales dashboard for an online store in Superset"
   },
   "sidebar.gen.publicCloudDataPlatformTutorialsExportImportConfig": {
     "fr": "Exporter / importer une configuration",
