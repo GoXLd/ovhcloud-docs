@@ -110,6 +110,12 @@ export interface RegionConfig {
    */
   footerLinks?: ReadonlyArray<{ text: string; link: string }>;
   /**
+   * Whether the sidebar's "Product changelog" link is shown. The changelog is a
+   * single worldwide page on www.ovhcloud.com with no US edition, so the US
+   * site leaves the link out rather than send readers to the en-gb page.
+   */
+  productChangelog: boolean;
+  /**
    * Language shown in the navbar's language slot while the region serves a
    * single locale. It looks like the language dropdown but cannot be opened:
    * readers see which language and market they are on. Once a second locale is
@@ -164,6 +170,7 @@ export const REGIONS: Record<Region, RegionConfig> = {
     routePrefix: '/guides/',
     aiAssistant: true,
     consentManager: true,
+    productChangelog: true,
     siteUrl: 'https://docs.ovhcloud.com',
     apiConsoleUrl: 'https://api.eu.ovhcloud.com/console/',
     corporateUrl: 'https://www.ovhcloud.com/',
@@ -184,6 +191,8 @@ export const REGIONS: Record<Region, RegionConfig> = {
     // The OVHcloud CMP is not implemented for the US: no consent manager, so
     // no analytics either.
     consentManager: false,
+    // No US edition of the changelog: see `productChangelog` above.
+    productChangelog: false,
     siteUrl: 'https://docs.us.ovhcloud.com',
     apiConsoleUrl: 'https://api.us.ovhcloud.com/console',
     corporateUrl: 'https://us.ovhcloud.com/',
