@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026.10.14
+
+### Fixes
+
+#### EU
+- sk-2845 zimbra automatic replies need the keep in inbox action on a forwarding filter (#1000)
+
+### Documentation
+- EU: 32 guides across de, en, es, fr, it, pl, pt
+
 ## 2026.10.13
 
 ### Fixes
