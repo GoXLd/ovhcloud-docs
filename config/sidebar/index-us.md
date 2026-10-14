@@ -835,7 +835,7 @@
             + [Change your Block Storage volume type](storage-and-backup/block-storage/switch-volume-type)
         + [Additional resources](storage-and-backup-block-storage-additional-resources)
             + [Block Storage - Responsibility sharing](storage-and-backup/block-storage/responsibility-sharing)
-    + [Backup and disaster recovery solutions](products/storage-and-backup-backup-and-disaster-recovery-solutions)
+    + [Backup and disaster recovery solutions](products/storage-and-backup-backup-and-disaster-recovery-solutions){landing=storage-and-backup/backup-and-disaster-recovery-solutions/landing-page-backup-and-disaster-recovery-solutions}
         + [Backup Agent](storage-and-backup-backup-and-disaster-recovery-solutions-backup-agent){landing=storage-and-backup/backup-agent/landing-page-backup-agent}
             + [Key concepts](storage-and-backup-backup-and-disaster-recovery-solutions-backup-agent-key-concepts)
                 + [Backup Agent - Product overview](storage-and-backup/backup-agent/product-presentation)
