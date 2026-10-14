@@ -2,13 +2,20 @@
 
 ## 2026.10.14
 
+### Features
+
+#### EU
+- **compute:** update sentence in the architecture guide (#981)
+- **cold archive:** update on getting stard (#915)
+- **Clickhouse:** update guide with the new available regions 1AZ (#837)
+
 ### Fixes
 
 #### EU
 - sk-2845 zimbra automatic replies need the keep in inbox action on a forwarding filter (#1000)
 
 ### Documentation
-- EU: 32 guides across de, en, es, fr, it, pl, pt
+- EU: 154 guides across de, en, es, fr, it, pl, pt
 
 ## 2026.10.13
 
