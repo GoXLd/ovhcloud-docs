@@ -9251,6 +9251,9 @@
   "sidebar.gen.publicCloudAiMachineLearningAiTrainingTutorials": {
     "en": "Tutorials"
   },
+  "sidebar.gen.publicCloudAiMachineLearningAiTrainingTutorialsAudioSignalProcessing": {
+    "en": "Audio/Signal processing"
+  },
   "sidebar.gen.publicCloudAiMachineLearningAiTrainingTutorialsMlopsMonitoring": {
     "en": "MLOps/Monitoring"
   },
