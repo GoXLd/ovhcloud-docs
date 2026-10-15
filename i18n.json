@@ -7271,6 +7271,9 @@
   "sidebar.gen.hostedPrivateCloud": {
     "en": "Hosted Private Cloud"
   },
+  "sidebar.gen.hostedPrivateCloudBackupAndDisasterRecoverySolutions": {
+    "en": "Backup and disaster recovery solutions"
+  },
   "sidebar.gen.hostedPrivateCloudBaremetalPod": {
     "fr": "Bare Metal Pod",
     "en": "Bare Metal Pod",
