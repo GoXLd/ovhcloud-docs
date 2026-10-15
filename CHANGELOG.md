@@ -1,5 +1,32 @@
 # Changelog
 
+## 2026.10.15
+
+### Features
+
+#### US
+- **theme:** tighter product banner, shared with US universe pages
+- **us:** add universe landing pages
+- **us:** serve US guides under /en/
+
+#### All regions
+- **us:** drop the Product changelog link from the US sidebar
+- **us:** add the redirection plan from the Zendesk help centre
+- **api:** lighter API call design, no US flag
+- **us:** show a fixed English language indicator
+- **us:** add a 301.map for the US site
+
+### Fixes
+
+#### All regions
+- **us:** commit the US redirection rule file
+- **us:** drop the arrow from the fixed language indicator
+- **us:** move the images of the guides moved by the sidebar revision
+
+### Documentation
+- EU: 355 guides across de, en, es, fr, it, pl, pt
+- US: 727 guides across en
+
 ## 2026.10.14
 
 ### Features
