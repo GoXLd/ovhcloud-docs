@@ -10,7 +10,10 @@
  *
  *   base    the page exactly as the importer wrote it. Found in git history:
  *           the blob with the guide's `zendesk_id` whose body hashes to its
- *           `content_hash`.
+ *           `content_hash`. After a resync, that body is the converted article
+ *           of the previous run, which is never committed: each run saves it
+ *           to `<snapshot>/bases/<zendesk_id>.md`, and the next run reads it
+ *           back with `--bases`.
  *   ours    the page as it is now.
  *   theirs  the live Zendesk article, run through the same converter.
  *
@@ -32,7 +35,10 @@
  *   pnpm zendesk:resync --fetch <dir>      # pull the public help centre into <dir>
  *   pnpm zendesk:resync --snapshot <dir>   # dry run: report, write nothing
  *   pnpm zendesk:resync --snapshot <dir> --write [--report <file>]
+ *   pnpm zendesk:resync --snapshot <new> --bases <previous>/bases --write
+ *   pnpm zendesk:resync --snapshot <dir> --save-bases   # bases only, no guide
  *
+
  * Only the public Help Center API is used, with no credentials.
  */
 
@@ -42,6 +48,7 @@ import * as fs from 'node:fs';
 import * as os from 'node:os';
 import * as path from 'node:path';
 import minimist from 'minimist';
+import sharp from 'sharp';
 import { convertArticle } from './lib/convert-article.js';
 import { slugify } from './lib/resolve.js';
 
@@ -53,8 +60,8 @@ const HC_API = 'https://support.us.ovhcloud.com/api/v2/help_center/en-us/';
 const SITE = 'https://docs.us.ovhcloud.com/en';
 
 const argv = minimist(process.argv.slice(2), {
-  string: ['fetch', 'snapshot', 'report', 'only'],
-  boolean: ['write'],
+  string: ['fetch', 'snapshot', 'report', 'only', 'bases'],
+  boolean: ['write', 'save-bases'],
 });
 
 interface Article {
@@ -165,6 +172,60 @@ function buildContent(article: Article, markdown: string): string {
 const imageStem = (url: string): string =>
   slugify(url.split('?')[0].split('/').filter(Boolean).pop() ?? 'asset');
 
+/**
+ * The file in `dir` showing the same picture as `buf`, if any. Compared on
+ * decoded pixels, not bytes: a re-encoded screenshot differs in every byte but
+ * no pixel moves by more than compression noise.
+ */
+async function samePicture(buf: Buffer, dir: string): Promise<string | null> {
+  if (!fs.existsSync(dir)) return null;
+  const decode = (input: Buffer | string) =>
+    sharp(input).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  let target: Awaited<ReturnType<typeof decode>>;
+  try {
+    target = await decode(buf);
+  } catch {
+    return null;
+  }
+  for (const name of fs.readdirSync(dir)) {
+    const file = path.join(dir, name);
+    const meta = await sharp(file)
+      .metadata()
+      .catch(() => null);
+    if (
+      meta?.width !== target.info.width ||
+      meta?.height !== target.info.height
+    )
+      continue;
+    // Compression moves a few pixels a lot (seen: up to 3 in a screenshot);
+    // a changed screenshot moves thousands.
+    const other = await decode(file);
+    const pixels = other.data.length / 3;
+    let strong = 0;
+    for (let i = 0; i < other.data.length; i += 3)
+      if (
+        Math.abs(other.data[i] - target.data[i]) > 40 ||
+        Math.abs(other.data[i + 1] - target.data[i + 1]) > 40 ||
+        Math.abs(other.data[i + 2] - target.data[i + 2]) > 40
+      )
+        strong++;
+    if (strong <= pixels / 1000) return name;
+  }
+  return null;
+}
+
+/** `<guide-slug>-<n><ext>`, with the first n not taken in `dir`. */
+function freeName(dir: string, ext: string): string {
+  const slug = path.basename(dir);
+  let n = 1;
+  while (
+    fs.existsSync(dir) &&
+    fs.readdirSync(dir).some((f) => f.startsWith(`${slug}-${n}.`))
+  )
+    n++;
+  return `${slug}-${n}${ext}`;
+}
+
 const EXT_BY_TYPE: Record<string, string> = {
   'image/png': '.png',
   'image/jpeg': '.jpg',
@@ -243,6 +304,16 @@ async function main(): Promise<void> {
     if (!g) continue;
     if (!base.has(g.id) && sha(`${body.trim()}\n`) === g.fields.content_hash)
       base.set(g.id, body.trim());
+  }
+  // Guides resynced before: their base is the converted article saved by the
+  // previous run.
+  if (argv.bases) {
+    for (const g of guides.values()) {
+      const file = path.join(argv.bases, `${g.id}.md`);
+      if (base.has(g.id) || !fs.existsSync(file)) continue;
+      const saved = fs.readFileSync(file, 'utf-8');
+      if (sha(saved) === g.fields.content_hash) base.set(g.id, saved.trim());
+    }
   }
   // Image stems repeat across guides (`storage.png` in several articles), so a
   // guide's own import is searched first; the global map only serves images
@@ -324,35 +395,66 @@ async function main(): Promise<void> {
   const retitled: Array<{ guide: Guide; from: string; to: string }> = [];
   const titleKept: Array<{ guide: Guide; from: string; to: string }> = [];
   const newImages: string[] = [];
+  const reused: string[] = [];
+  const needsAlt: Array<{ guide: Guide; image: string; alt: string }> = [];
+  const missingImages: Array<{ guide: Guide; image: string }> = [];
 
   for (const g of changed) {
     if (only && !only.has(g.id)) continue;
     const a = articles.get(g.id) as Article;
     const html = a.body ?? '';
     const imageMap = toImageMap(g.id, html);
-    // Images new on Zendesk go into the guide's current image folder.
+    // Images Zendesk links under an unknown attachment id. Zendesk often
+    // re-uploads the same screenshot, re-encoded: those reuse the image already
+    // in the guide's folder. Only a real new picture is saved, under a readable
+    // name in that folder.
     const folder = path.relative(GUIDES, g.file).replace(/\.mdx$/, '');
+    const added = new Set<string>();
     for (const m of html.matchAll(/<img[^>]+src="([^"]+)"/g)) {
       const url = m[1];
       const hosted =
         /^https?:\/\/(support\.us\.ovhcloud\.com|help\.ovhcloud\.com)\//;
       if (imageMap[url] || !hosted.test(url)) continue;
-      let ext = '.png';
-      if (argv.write) {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error(`${res.status} ${url}`);
-        ext =
-          EXT_BY_TYPE[(res.headers.get('content-type') ?? '').split(';')[0]] ??
-          '.png';
-        const dest = path.join(IMAGES, folder, `${imageStem(url)}${ext}`);
-        fs.mkdirSync(path.dirname(dest), { recursive: true });
-        fs.writeFileSync(dest, Buffer.from(await res.arrayBuffer()));
+      if (!argv.write && !argv['save-bases']) {
+        imageMap[url] = `/images/${folder}/${imageStem(url)}.png`;
+        newImages.push(imageMap[url]);
+        continue;
       }
-      imageMap[url] = `/images/${folder}/${imageStem(url)}${ext}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`${res.status} ${url}`);
+      const buf = Buffer.from(await res.arrayBuffer());
+      const known = await samePicture(buf, path.join(IMAGES, folder));
+      if (known) {
+        imageMap[url] = `/images/${folder}/${known}`;
+        reused.push(imageMap[url]);
+        continue;
+      }
+      const ext =
+        EXT_BY_TYPE[(res.headers.get('content-type') ?? '').split(';')[0]] ??
+        '.png';
+      const name = freeName(path.join(IMAGES, folder), ext);
+      fs.mkdirSync(path.join(IMAGES, folder), { recursive: true });
+      fs.writeFileSync(path.join(IMAGES, folder, name), buf);
+      imageMap[url] = `/images/${folder}/${name}`;
       newImages.push(imageMap[url]);
+      added.add(imageMap[url]);
     }
 
     const theirs = buildContent(a, convertArticle(html, imageMap).markdown);
+    // Zendesk alt text is often the uploaded file name: a person writes the
+    // real one before the change is committed.
+    for (const m of theirs.matchAll(/!\[([^\]]*)\]\(([^)\s]+)\)/g))
+      if (
+        added.has(m[2]) &&
+        (!m[1].trim() || /\.(png|jpe?g|gif|webp)$/i.test(m[1]))
+      )
+        needsAlt.push({ guide: g, image: m[2], alt: m[1] });
+    // The next run's base for this guide (see the header).
+    if (argv.write || argv['save-bases']) {
+      const dir = path.join(argv.snapshot, 'bases');
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, `${g.id}.md`), theirs);
+    }
     const files = ['ours', 'base', 'zendesk'].map((n) =>
       path.join(tmp, `${g.id}.${n}`),
     );
@@ -402,13 +504,20 @@ async function main(): Promise<void> {
     frontmatter = setField(frontmatter, 'content_hash', sha(theirs));
     frontmatter = setField(frontmatter, 'updated', a.edited_at.slice(0, 10));
 
-    if (argv.write)
+    if (argv.write && !argv['save-bases'])
       fs.writeFileSync(
         g.file,
         `---\n${frontmatter}\n---\n\n${merged.trim()}\n`,
       );
     if (count > 0) conflicted.push({ guide: g, count });
     else clean.push(path.relative(ROOT, g.file));
+    // A line Zendesk changed can carry an image path renamed here since.
+    if (argv.write)
+      for (const m of merged
+        .replace(/^\|{7} import\n[\s\S]*?^={7}\n/gm, '')
+        .matchAll(/\]\((\/images\/[^)\s]+)\)/g))
+        if (!fs.existsSync(path.join(ROOT, 'docs-us', 'public', m[1])))
+          missingImages.push({ guide: g, image: m[1] });
   }
   fs.rmSync(tmp, { recursive: true, force: true });
 
@@ -422,7 +531,19 @@ async function main(): Promise<void> {
     `- clean merges: ${clean.length}`,
     `- merges with conflicts: ${conflicted.length} (${conflicted.reduce((n, c) => n + c.count, 0)} hunks)`,
     `- retitled: ${retitled.length}`,
-    `- new images: ${newImages.length}`,
+    `- new images: ${newImages.length} (re-uploads matched to an existing image: ${reused.length})`,
+    `- new images whose alt text must be written: ${needsAlt.length}`,
+    `- image paths that do not exist: ${missingImages.length}`,
+    '',
+    '## Alt text to write',
+    '',
+    ...needsAlt.map(
+      (n) => `- \`${rel(n.guide)}\`: \`${n.image}\` (Zendesk: "${n.alt}")`,
+    ),
+    '',
+    '## Missing images',
+    '',
+    ...missingImages.map((n) => `- \`${rel(n.guide)}\`: \`${n.image}\``),
     '',
     '## Conflicts',
     '',
