@@ -12,8 +12,9 @@
  *           the blob with the guide's `zendesk_id` whose body hashes to its
  *           `content_hash`. After a resync, that body is the converted article
  *           of the previous run, which is never committed: each run saves it
- *           to `<snapshot>/bases/<zendesk_id>.md`, and the next run reads it
- *           back with `--bases`.
+ *           to `<snapshot>/bases/<zendesk_id>.md`, with the image paths it used
+ *           in `<zendesk_id>.images.json`, and the next run reads both back
+ *           with `--bases`.
  *   ours    the page as it is now.
  *   theirs  the live Zendesk article, run through the same converter.
  *
@@ -297,6 +298,7 @@ async function main(): Promise<void> {
 
   // Base: the importer's own output, identified by content_hash.
   const base = new Map<string, string>();
+  const savedImages = new Map<string, Record<string, string>>();
   const imagePaths = new Map<string, string>();
   for (const raw of historicalBlobs()) {
     const { fields, body } = split(raw);
@@ -312,7 +314,13 @@ async function main(): Promise<void> {
       const file = path.join(argv.bases, `${g.id}.md`);
       if (base.has(g.id) || !fs.existsSync(file)) continue;
       const saved = fs.readFileSync(file, 'utf-8');
-      if (sha(saved) === g.fields.content_hash) base.set(g.id, saved.trim());
+      if (sha(saved) !== g.fields.content_hash) continue;
+      base.set(g.id, saved.trim());
+      // The image paths that run gave each Zendesk URL, so the same article
+      // converts back to the same base whatever the images are named.
+      const images = path.join(argv.bases, `${g.id}.images.json`);
+      if (fs.existsSync(images))
+        savedImages.set(g.id, JSON.parse(fs.readFileSync(images, 'utf-8')));
     }
   }
   // Image stems repeat across guides (`storage.png` in several articles), so a
@@ -331,7 +339,12 @@ async function main(): Promise<void> {
   const toImageMap = (id: string, html: string): Record<string, string> => {
     const own = stemsOf(base.get(id) ?? '');
     const map: Record<string, string> = {};
+    const saved = savedImages.get(id) ?? {};
     for (const m of html.matchAll(/<img[^>]+src="([^"]+)"/g)) {
+      if (saved[m[1]]) {
+        map[m[1]] = saved[m[1]];
+        continue;
+      }
       // EU-hosted images were copied at their own path (see assets.ts).
       if (/^(https?:\/\/docs\.ovhcloud\.com)?\/images\//.test(m[1])) {
         map[m[1]] = decodeURIComponent(
@@ -454,6 +467,10 @@ async function main(): Promise<void> {
       const dir = path.join(argv.snapshot, 'bases');
       fs.mkdirSync(dir, { recursive: true });
       fs.writeFileSync(path.join(dir, `${g.id}.md`), theirs);
+      fs.writeFileSync(
+        path.join(dir, `${g.id}.images.json`),
+        `${JSON.stringify(imageMap, null, 2)}\n`,
+      );
     }
     const files = ['ours', 'base', 'zendesk'].map((n) =>
       path.join(tmp, `${g.id}.${n}`),
