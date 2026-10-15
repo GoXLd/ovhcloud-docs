@@ -197,15 +197,6 @@
     "pl": "Przewodniki",
     "pt": "Guias"
   },
-  "homeExploreTitle": {
-    "en": "Explore",
-    "fr": "Explorer",
-    "de": "Entdecken",
-    "es": "Explorar",
-    "it": "Esplora",
-    "pl": "Odkryj",
-    "pt": "Explorar"
-  },
   "homeExploreProductPage": {
     "en": "Product page",
     "fr": "Page produit",
@@ -214,6 +205,15 @@
     "it": "Pagina del prodotto",
     "pl": "Strona produktu",
     "pt": "Página do produto"
+  },
+  "homeExploreTitle": {
+    "en": "Explore",
+    "fr": "Explorer",
+    "de": "Entdecken",
+    "es": "Explorar",
+    "it": "Esplora",
+    "pl": "Odkryj",
+    "pt": "Explorar"
   },
   "homeQuickstartTitle": {
     "en": "Quick Start",
