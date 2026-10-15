@@ -51,6 +51,7 @@
     "zendesk:compliance": "tsx scripts/import-zendesk/compliance.ts",
     "zendesk:sidebar": "tsx scripts/import-zendesk/sidebar.ts",
     "zendesk:mdx-check": "tsx scripts/import-zendesk/mdx-check.ts",
+    "zendesk:resync": "tsx scripts/import-zendesk/resync.ts",
     "glossary:build": "tsx scripts/build-glossary.ts",
     "glossary:validate": "tsx scripts/glossary-validate.ts",
     "fragment:validate": "tsx scripts/fragments-validate.ts",
