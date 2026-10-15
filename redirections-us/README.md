@@ -105,7 +105,6 @@ Manage and Operate category, goes to Manage and Operate.
 | Section Responsibility sharing | docs home | One guide per product across every universe; no page groups them yet. |
 | Category Public Cloud Services | Public Cloud universe page | Named after the universe; its storage products moved to Storage and Backup. |
 | Category Virtual Private Servers | VPS landing | The category is the product; shared SSH and firewall guides sit under Dedicated Servers. |
-| Article 55983005828115 (tags) | IAM landing | Published on 2026-10-01, not migrated yet. |
 
 ## Sources use the article ID only
 
@@ -142,8 +141,6 @@ not carried forward.
 
 ## Left open
 
-- **The tags guide** (55983005828115) points at the IAM landing until it is migrated.
-  Repoint it to the guide, in `overrides.csv` or by migrating it with its `zendesk_id`.
 - **Responsibility sharing** goes to the docs home until a page groups those guides.
 - **The rules are not applied yet.** `support.us.ovhcloud.com` is served by Zendesk;
   applying them needs that host behind our own servers or the redirects configured on

@@ -1196,6 +1196,7 @@
         + [Using IAM policies with vSphere](account/account-information/use-iam-policies-vsphere)
         + [How to restrict local users from billing information in the OVHcloud Control Panel](account/account-information/restrict-local-users-from-billing-information)
         + [Generating OVHcloud account logs with Logs Data Platform](manage-and-operate/logs-data-platform/generating-ovhcloud-account-logs)
+        + [How to manage tags on resources](manage-and-operate/iam/manage-tags-on-resources)
     + [Terraform](products/manage-and-operate-terraform)
         + [Using Terraform with OVHcloud](manage-and-operate/terraform/using-terraform-with-ovhcloud)
     + [CLI](products/manage-and-operate-cli)
