@@ -1,5 +1,5 @@
 {
-  "fetched": "2026-10-12",
+  "fetched": "2026-10-15",
   "source": "https://support.us.ovhcloud.com/api/v2/help_center/en-us/",
   "categories": [
     {
@@ -1388,7 +1388,7 @@
     },
     {
       "id": 360002499679,
-      "title": "How to Deploy a Minecraft Server in Linux",
+      "title": "Deploying a Minecraft Server in Linux",
       "section_id": 27076481205395
     },
     {
@@ -2003,12 +2003,12 @@
     },
     {
       "id": 6942791769107,
-      "title": "How to Install OVHcloud Connect Direct from the OVHcloud Control Panel",
+      "title": "Installation of OVHcloud Connect Direct from the OVHcloud Control Panel",
       "section_id": 6942662565523
     },
     {
       "id": 6973502587155,
-      "title": "How to Install OVHcloud Connect Provider from the OVHcloud Control Panel",
+      "title": "Installation of OVHcloud Connect Provider from the OVHcloud Control Panel",
       "section_id": 6942662565523
     },
     {
@@ -2503,7 +2503,7 @@
     },
     {
       "id": 18695566731283,
-      "title": "How to Set Up Advanced Replication and Disaster Recovery with Nutanix",
+      "title": "Advanced replication and disaster recovery with Nutanix",
       "section_id": 48383102362003
     },
     {

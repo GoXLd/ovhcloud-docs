@@ -60,7 +60,7 @@ zendesk_id: 39499067423379
 ```
 
 That ID survived every slug change, folder move and de-duplication, so an article's rule
-is a join on it, not a title match. On the snapshot of 2026-10-12: 729 articles matched,
+is a join on it, not a title match. On the snapshot of 2026-10-15: 730 articles matched,
 no guide with an unknown ID, no ID on two guides.
 
 The 64 articles without a guide of their own are listed in `merged-articles.csv`. Both
@@ -105,6 +105,7 @@ Manage and Operate category, goes to Manage and Operate.
 | Section Responsibility sharing | docs home | One guide per product across every universe; no page groups them yet. |
 | Category Public Cloud Services | Public Cloud universe page | Named after the universe; its storage products moved to Storage and Backup. |
 | Category Virtual Private Servers | VPS landing | The category is the product; shared SSH and firewall guides sit under Dedicated Servers. |
+| Section Key concepts (VMware on OVHcloud) | VMware landing | Its 2 guides are also placed under Public VCF as-a-Service, which wins the tie. |
 
 ## Sources use the article ID only
 
@@ -129,6 +130,20 @@ The script writes nothing unless every live Zendesk page resolves and every dest
 exists as a page in `docs-us/en`. Regenerate after any US guide is moved, renamed, merged
 or deleted, and before handing the file over: rules are rebuilt from the repo each time,
 not carried forward.
+
+## Checks run (2026-10-15)
+
+- 1,002 rules, no duplicate source; all 768 distinct destinations exist as pages in `docs-us/en`.
+- Against the 2026-10-12 version: 998 rules unchanged, 4 changed.
+  - The tags article (55983005828115) goes to its new guide instead of the IAM landing.
+  - The VPS sections Getting started, Troubleshooting and Tutorials go to the VPS landing
+    instead of the Bare Metal Cloud page: their SSH guides are now also placed under VPS.
+  - The VMware Key concepts section would have moved to the Public VCF landing; a new
+    override keeps it on the VMware landing.
+- The October 15 sidebar change (Network nested under Bare Metal Cloud and Hosted Private
+  Cloud, storage under Public Cloud, backup under Bare Metal Cloud and Hosted Private Cloud)
+  moves no rule: guide URLs did not change, and the former universe pages `/network` and
+  `/storage-and-backup` remain as the landings of those groups.
 
 ## Checks run (2026-10-12)
 
