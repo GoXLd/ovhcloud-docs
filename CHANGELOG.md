@@ -1,5 +1,29 @@
 # Changelog
 
+## 2026.10.16
+
+### Features
+
+#### All regions
+- **us:** add a Zendesk delta-resync script
+- **us:** drop the page feedback form on the US site
+
+### Fixes
+
+#### All regions
+- **us:** keep each guide's image paths with its resync base
+- **us:** make the resync reusable and image-aware
+
+### Maintenance
+
+#### All regions
+- **us:** regenerate the US redirect plan
+- **i18n:** sort the homeExploreProductPage key
+
+### Documentation
+- EU: 317 guides across de, en, es, fr, it, pl, pt
+- US: 258 guides across en
+
 ## 2026.10.15
 
 ### Features
