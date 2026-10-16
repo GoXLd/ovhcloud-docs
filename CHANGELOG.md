@@ -5,6 +5,7 @@
 ### Features
 
 #### All regions
+- **build:** load the Commanders Act cookie policy on the US site
 - **us:** add a Zendesk delta-resync script
 - **us:** drop the page feedback form on the US site
 
