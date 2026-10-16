@@ -410,7 +410,7 @@ To add a new key, edit [config/links.ts](config/links.ts) and add a row with one
 
 ### Zone-aware API links — `<ApiLink>` / `<CreateToken>`
 
-Links to the OVHcloud API depend on the reader's **commercial zone** (EU / CA), not the page locale — a locale-keyed `/links/` entry cannot express that, and a hardcoded `https://eu.api.ovh.com/…` URL sends CA/APAC readers to an auth they cannot log in to. Use the zone-aware components instead (they follow the same zone selection as `<ManagerLink>`). Both are **globally registered — do not add an import**:
+Links to the OVHcloud API depend on the reader's **commercial zone** (EU / CA), not the page locale — a locale-keyed `/links/` entry cannot express that, and a hardcoded `https://api.eu.ovhcloud.com/…` URL sends CA/APAC readers to an auth they cannot log in to. Use the zone-aware components instead (they follow the same zone selection as `<ManagerLink>`). Both are **globally registered — do not add an import**:
 
 ```mdx
 <!-- Generic reference to the API / the API console -->
