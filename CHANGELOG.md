@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026.10.16.1
+
+### Fixes
+
+#### EU
+- **db:** update sentences about pricing (#991)
+
+### Maintenance
+
+#### All regions
+- **build:** upgrade Rspress to 2.0.23
+
+### Documentation
+- EU: 388 guides across de, en, es, fr, it, pl, pt
+
 ## 2026.10.16
 
 ### Features
