@@ -197,15 +197,6 @@
     "pl": "Przewodniki",
     "pt": "Guias"
   },
-  "homeExploreTitle": {
-    "en": "Explore",
-    "fr": "Explorer",
-    "de": "Entdecken",
-    "es": "Explorar",
-    "it": "Esplora",
-    "pl": "Odkryj",
-    "pt": "Explorar"
-  },
   "homeExploreProductPage": {
     "en": "Product page",
     "fr": "Page produit",
@@ -214,6 +205,15 @@
     "it": "Pagina del prodotto",
     "pl": "Strona produktu",
     "pt": "Página do produto"
+  },
+  "homeExploreTitle": {
+    "en": "Explore",
+    "fr": "Explorer",
+    "de": "Entdecken",
+    "es": "Explorar",
+    "it": "Esplora",
+    "pl": "Odkryj",
+    "pt": "Explorar"
   },
   "homeQuickstartTitle": {
     "en": "Quick Start",
@@ -6926,6 +6926,9 @@
   "sidebar.gen.accountBillingInvoicesBillingAndPayments": {
     "en": "Invoices, billing, and payments"
   },
+  "sidebar.gen.accountBillingInvoicesBillingAndPaymentsPublicCloud": {
+    "en": "Public Cloud"
+  },
   "sidebar.gen.accountBillingManagingServices": {
     "en": "Managing services"
   },
@@ -7267,6 +7270,9 @@
   },
   "sidebar.gen.hostedPrivateCloud": {
     "en": "Hosted Private Cloud"
+  },
+  "sidebar.gen.hostedPrivateCloudBackupAndDisasterRecoverySolutions": {
+    "en": "Backup and disaster recovery solutions"
   },
   "sidebar.gen.hostedPrivateCloudBaremetalPod": {
     "fr": "Bare Metal Pod",
@@ -8264,6 +8270,24 @@
     "pl": "Kluczowe pojęcia",
     "pt": "Conceitos-chave"
   },
+  "sidebar.gen.networkAdditionalIpProductSpecificGuides": {
+    "en": "Product-specific guides"
+  },
+  "sidebar.gen.networkAdditionalIpProductSpecificGuidesDedicatedServers": {
+    "en": "Dedicated Servers"
+  },
+  "sidebar.gen.networkAdditionalIpProductSpecificGuidesHostedPrivateCloud": {
+    "en": "Hosted Private Cloud"
+  },
+  "sidebar.gen.networkAdditionalIpProductSpecificGuidesLoadBalancer": {
+    "en": "Load Balancer"
+  },
+  "sidebar.gen.networkAdditionalIpProductSpecificGuidesPublicCloud": {
+    "en": "Public Cloud"
+  },
+  "sidebar.gen.networkAdditionalIpProductSpecificGuidesVps": {
+    "en": "Virtual Private Servers"
+  },
   "sidebar.gen.networkAdditionalIpProducts": {
     "fr": "Guides spécifiques aux produits",
     "en": "Product-specific guides",
@@ -9250,6 +9274,9 @@
   },
   "sidebar.gen.publicCloudAiMachineLearningAiTrainingTutorials": {
     "en": "Tutorials"
+  },
+  "sidebar.gen.publicCloudAiMachineLearningAiTrainingTutorialsAudioSignalProcessing": {
+    "en": "Audio/Signal processing"
   },
   "sidebar.gen.publicCloudAiMachineLearningAiTrainingTutorialsMlopsMonitoring": {
     "en": "MLOps/Monitoring"
@@ -12710,6 +12737,9 @@
   "sidebar.gen.publicCloudNetworkServicesKeyConcepts": {
     "en": "Key concepts"
   },
+  "sidebar.gen.publicCloudNetworkServicesSecurity": {
+    "en": "Security"
+  },
   "sidebar.gen.publicCloudNetworkServicesTroubleshooting": {
     "en": "Troubleshooting"
   },
@@ -12718,6 +12748,9 @@
   },
   "sidebar.gen.publicCloudNetworkServicesTutorialsLoadBalancer": {
     "en": "Load Balancer"
+  },
+  "sidebar.gen.publicCloudNetworkServicesTutorialsPrivateNetwork": {
+    "en": "Private Network"
   },
   "sidebar.gen.publicCloudNetworkTroubleshooting": {
     "fr": "Diagnostic et dépannage",
@@ -12826,6 +12859,66 @@
     "it": "Storage and Backup",
     "pl": "Storage and Backup",
     "pt": "Storage and Backup"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupBlockStorage": {
+    "en": "Block Storage"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupBlockStorageAdditionalResources": {
+    "en": "Additional resources"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupBlockStorageConfiguration": {
+    "en": "Configuration"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupBlockStorageGettingStarted": {
+    "en": "Getting started"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupBlockStorageKeyConcepts": {
+    "en": "Key concepts"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupBlockStorageMigration": {
+    "en": "Migration"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupFileStorage": {
+    "en": "File Storage"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupFileStorageGettingStarted": {
+    "en": "Getting started"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupFileStorageKeyConcepts": {
+    "en": "Key concepts"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupObjectStorageS3Compatible": {
+    "en": "S3™-compatible"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupObjectStorageS3CompatibleAdditionalResources": {
+    "en": "Additional resources"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupObjectStorageS3CompatibleConfiguration": {
+    "en": "Configuration"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupObjectStorageS3CompatibleGettingStarted": {
+    "en": "Getting started"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupObjectStorageS3CompatibleKeyConcepts": {
+    "en": "Key concepts"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupObjectStorageS3CompatibleSecurity": {
+    "en": "Security"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupObjectStorageS3CompatibleTroubleshooting": {
+    "en": "Troubleshooting"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupObjectStorageS3CompatibleTutorials": {
+    "en": "Tutorials"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupObjectStorageSwift": {
+    "en": "Swift"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupObjectStorageSwiftConfiguration": {
+    "en": "Configuration"
+  },
+  "sidebar.gen.publicCloudStorageAndBackupObjectStorageSwiftGettingStarted": {
+    "en": "Getting started"
   },
   "sidebar.gen.publicCloudStorageBlockStorage": {
     "fr": "Block Storage",
@@ -13183,6 +13276,9 @@
   },
   "sidebar.gen.storageAndBackupBackupAndDisasterRecoverySolutionsVeeamEnterprisePlus": {
     "en": "Veeam Enterprise Plus"
+  },
+  "sidebar.gen.storageAndBackupBackupAndDisasterRecoverySolutionsVeeamEnterprisePlusConfiguration": {
+    "en": "Configuration"
   },
   "sidebar.gen.storageAndBackupBackupAndDisasterRecoverySolutionsVeeamEnterprisePlusGettingStarted": {
     "en": "Getting started"

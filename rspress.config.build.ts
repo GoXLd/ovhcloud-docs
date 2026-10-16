@@ -251,6 +251,8 @@ export default defineConfig({
         __AI_ASSISTANT__: JSON.stringify(regionConfig.aiAssistant),
         // Whether the CMP and its analytics run (see config/regions.ts).
         __CONSENT_MANAGER__: JSON.stringify(regionConfig.consentManager),
+        // Whether guides end with the page feedback form (see config/regions.ts).
+        __PAGE_FEEDBACK__: JSON.stringify(regionConfig.pageFeedback),
         // Legal footer values, consumed by theme/components/SiteFooter. It
         // renders in the browser and cannot import config/regions.
         __FOOTER_COPYRIGHT__: JSON.stringify(regionConfig.copyright),

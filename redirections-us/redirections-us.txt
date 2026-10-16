@@ -2378,7 +2378,7 @@ SOURCE="/hc/en-us/articles/54121258958483"
 DEST="https://docs.us.ovhcloud.com/en/bare-metal-cloud/vps/increase-additional-disk"
 
 SOURCE="/hc/en-us/articles/55983005828115"
-DEST="https://docs.us.ovhcloud.com/en/manage-and-operate/iam/landing-page-iam"
+DEST="https://docs.us.ovhcloud.com/en/manage-and-operate/iam/manage-tags-on-resources"
 
 SOURCE="/hc/en-us/sections/115000560064"
 DEST="https://docs.us.ovhcloud.com/en/account/account-information/landing-page-account-information"
@@ -2408,7 +2408,7 @@ SOURCE="/hc/en-us/sections/360002564299"
 DEST="https://docs.us.ovhcloud.com/en/public-cloud/network-services/landing-page-network-services"
 
 SOURCE="/hc/en-us/sections/360002679260"
-DEST="https://docs.us.ovhcloud.com/en/bare-metal-cloud"
+DEST="https://docs.us.ovhcloud.com/en/bare-metal-cloud/vps/landing-page-vps"
 
 SOURCE="/hc/en-us/sections/360003273859"
 DEST="https://docs.us.ovhcloud.com/en/bare-metal-cloud/vps/landing-page-vps"
@@ -2657,10 +2657,10 @@ SOURCE="/hc/en-us/sections/27187734076691"
 DEST="https://docs.us.ovhcloud.com/en/storage-and-backup/backup-agent/landing-page-backup-agent"
 
 SOURCE="/hc/en-us/sections/27189068513427"
-DEST="https://docs.us.ovhcloud.com/en/bare-metal-cloud"
+DEST="https://docs.us.ovhcloud.com/en/bare-metal-cloud/vps/landing-page-vps"
 
 SOURCE="/hc/en-us/sections/27189077788435"
-DEST="https://docs.us.ovhcloud.com/en/bare-metal-cloud"
+DEST="https://docs.us.ovhcloud.com/en/bare-metal-cloud/vps/landing-page-vps"
 
 SOURCE="/hc/en-us/sections/27189100797203"
 DEST="https://docs.us.ovhcloud.com/en/bare-metal-cloud/vps/landing-page-vps"

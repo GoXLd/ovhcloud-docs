@@ -2,9 +2,9 @@
 title: "OVHcloud VPS FAQ"
 description: "A virtual private server (VPS) is used for hosting websites (e-commerce, content, visual media) and software applications (portals, extranets, collaborative sol"
 zendesk_id: 48817968371091
-zendesk_hash: ca6d5727bb10d61a
-content_hash: 85f7c7cc3e1a996a
-updated: 2026-05-08
+zendesk_hash: 1a8f8e1a902a952c
+content_hash: b9ceb4498f5d3a5f
+updated: 2026-09-21
 ---
 
 import Api from '@components/Api';
@@ -195,7 +195,13 @@ This includes:
 - reverse DNS (PTR) configuration,
 - following email providers' best practices.
 
-If emails are not sending or SMTP is not responding, check whether SMTP ports are blocked. Port 25 is blocked by default on OVHcloud VPS to prevent abuse. Use port 587 (STARTTLS) for outbound mail instead or, if required, request port 25 to be unblocked by [contacting our support team](/account/account-information/contact-us-support).
+If emails are not being sent or SMTP is not responding, check whether SMTP ports are blocked. Port 25 is blocked by default on OVHcloud VPS to prevent abuse. Use port 587 (STARTTLS) for outbound mail instead or, if required, request port 25 to be unblocked by [contacting our support team](/account/account-information/contact-us-support).
+
+:::warning
+
+**NOTE:** VPS deployed in Local Zones cannot contact any SMTP server under any circumstances; they are inaccessible with no option to unblock them.
+
+:::
 
 For more details, see our dedicated guide: [How to prevent your emails from being marked as spam](/bare-metal-cloud/dedicated-servers/mail-sending-optimization).
 

@@ -3,5 +3,5 @@ section,20354716020115,/network/additional-ip/landing-page-additional-ip,"The se
 section,27076495459475,/bare-metal-cloud/dedicated-servers/landing-page-dedicated-servers,"Its category is Dedicated Servers; 12 of its 26 guides are the Backup Agent guides that moved to Storage and Backup."
 section,43545378735635,/,"Cross-cutting: one Responsibility sharing guide per product, across every universe. No page groups them yet, so it goes to the docs home."
 category,115000515130,/public-cloud,"Named after the Public Cloud universe; its storage products moved to Storage and Backup (60/40 split)."
-article,55983005828115,/manage-and-operate/iam/landing-page-iam,"Published on 2026-10-01 and not migrated yet (next export). Interim: the IAM landing, where it will be placed. Repoint to the guide once it exists."
 category,360001903679,/bare-metal-cloud/vps/landing-page-vps,"The category is the VPS product. Only 70% of its articles sit under VPS because shared SSH and firewall guides live under Dedicated Servers, which the VPS landing lists anyway."
+section,48378083818771,/hosted-private-cloud/vmware/landing-page-vmware,"The VMware on OVHcloud Key concepts section; its 2 guides are also placed under Public VCF as-a-Service, which wins the tie."
