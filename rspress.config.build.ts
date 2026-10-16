@@ -183,6 +183,31 @@ export default defineConfig({
             '}})();',
           ].join(''),
         },
+        // Cookie policy for a region the CMP does not cover yet (see
+        // config/regions.ts `cookieScript`).
+        ...(regionConfig.cookieScript
+          ? [
+              // The container calls jQuery as soon as it runs. It is async, so
+              // it may run before any deferred script: jQuery must be
+              // parser-blocking and placed before it to be there in time.
+              {
+                tag: 'script',
+                head: true,
+                append: true,
+                attrs: { src: '/vendor/jquery-3.7.1.min.js' },
+              },
+              {
+                tag: 'script',
+                head: true,
+                append: true,
+                attrs: {
+                  src: regionConfig.cookieScript,
+                  async: true,
+                  'data-analytics': '',
+                },
+              },
+            ]
+          : []),
         // The consent manager and the analytics it injects only exist in
         // regions that run them (config/regions.ts `consentManager`).
         ...(regionConfig.consentManager

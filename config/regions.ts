@@ -85,6 +85,13 @@ export interface RegionConfig {
    * for the EU; a region without it loads none of these.
    */
   consentManager: boolean;
+  /**
+   * Standalone cookie-policy script for a region the CMP does not cover yet,
+   * loaded in <head> on every page (async, `data-analytics` attribute), right
+   * after a parser-blocking jQuery that the container needs. Unset where the
+   * CMP runs: the two must never load together.
+   */
+  cookieScript?: string;
   /** Canonical site origin, used for sitemaps and canonical URLs. */
   siteUrl: string;
   /** OVHcloud API console URL used by the "API Reference" sidebar header item. */
@@ -195,9 +202,11 @@ export const REGIONS: Record<Region, RegionConfig> = {
     routePrefix: '/',
     // The US does not run the assistant service.
     aiAssistant: false,
-    // The OVHcloud CMP is not implemented for the US: no consent manager, so
-    // no analytics either.
+    // The OVHcloud CMP is not ready for the US yet: no consent manager, so
+    // none of the analytics it injects either. The cookie policy comes from
+    // the Commanders Act container below in the meantime.
     consentManager: false,
+    cookieScript: 'https://cdn.tagcommander.com/3881/ovhcloud.js',
     // No US edition of the changelog: see `productChangelog` above.
     productChangelog: false,
     // The US team does not collect page feedback: see `pageFeedback` above.
