@@ -10,7 +10,11 @@
 
 ### Fixes
 
+#### EU
+- point the Cloud Disk Array manager link at /public-cloud/
+
 #### All regions
+- move legacy ovh.com manager, sign-in and API hosts to ovhcloud.com
 - **us:** keep each guide's image paths with its resync base
 - **us:** make the resync reusable and image-aware
 
@@ -21,8 +25,8 @@
 - **i18n:** sort the homeExploreProductPage key
 
 ### Documentation
-- EU: 317 guides across de, en, es, fr, it, pl, pt
-- US: 258 guides across en
+- EU: 454 guides across de, en, es, fr, it, pl, pt
+- US: 483 guides across en
 
 ## 2026.10.15
 
