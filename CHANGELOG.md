@@ -2,18 +2,31 @@
 
 ## 2026.10.16.1
 
+### Features
+
+#### EU
+- **databases:** update mongodb documentations (#992)
+- **block:** update about encryption (#988)
+
 ### Fixes
 
 #### EU
+- **db:** remove eol versions from guides (#993)
 - **db:** update sentences about pricing (#991)
 
+#### All regions
+- **llms:** clean the per-page Markdown export (#1028)
+
 ### Maintenance
+
+#### EU
+- **cpnav:** add missing blank lines around CP-NAV tokens (#1030)
 
 #### All regions
 - **build:** upgrade Rspress to 2.0.23
 
 ### Documentation
-- EU: 388 guides across de, en, es, fr, it, pl, pt
+- EU: 489 guides across de, en, es, fr, it, pl, pt
 
 ## 2026.10.16
 
