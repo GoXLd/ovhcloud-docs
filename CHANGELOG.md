@@ -26,7 +26,7 @@
 - **build:** upgrade Rspress to 2.0.23
 
 ### Documentation
-- EU: 493 guides across de, en, es, fr, it, pl, pt
+- EU: 1258 guides across de, en, es, fr, it, pl, pt
 
 ## 2026.10.16
 
