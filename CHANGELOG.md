@@ -15,6 +15,7 @@
 - **db:** update sentences about pricing (#991)
 
 #### All regions
+- **retrievability:** restore probe coverage lost to the cleaned .md export (#1042)
 - **llms:** clean the per-page Markdown export (#1028)
 
 ### Maintenance
