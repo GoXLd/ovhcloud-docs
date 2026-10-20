@@ -11,7 +11,7 @@
 - **theme:** open the region's survey from the survey widget (#1031)
 
 ### Documentation
-- EU: 1 guides across en
+- EU: 3 guides across en, fr
 
 ## 2026.10.16.1
 
