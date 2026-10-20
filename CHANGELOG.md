@@ -10,8 +10,17 @@
 #### All regions
 - **theme:** open the region's survey from the survey widget (#1031)
 
+### Fixes
+
+#### EU
+- **okms:** backup guide: fix the backup regions and lowercase the region names (#1023)
+- correct Terraform registry links in Terraform guide (#1020)
+
+#### All regions
+- **husky:** stop the Mermaid block from failing commits without a diagram (#1051)
+
 ### Documentation
-- EU: 3 guides across en, fr
+- EU: 418 guides across de, en, es, fr, it, pl, pt
 
 ## 2026.10.16.1
 
