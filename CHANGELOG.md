@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026.10.20
+
+### Features
+
+#### EU
+- **components:** render mermaid diagrams whole with click-to-zoom, check their source at commit (#1032)
+
+#### All regions
+- **theme:** open the region's survey from the survey widget (#1031)
+
+### Documentation
+- EU: 1 guides across en
+
 ## 2026.10.16.1
 
 ### Features
