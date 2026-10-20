@@ -1454,6 +1454,8 @@
                 + [Use Access Control Lists (ACLs) for Analytics with Kafka](public-cloud/data-analytics/analytics/kafka-configure-acl)
                 + [Enable the Schema Registry for Analytics with Kafka](public-cloud/data-analytics/analytics/kafka-enable-schema-registry)
                 + [Enable the REST API for Analytics with Kafka](public-cloud/data-analytics/analytics/kafka-enable-rest-api)
+                + [Link Kafka Connect to Kafka and create a connector](public-cloud/data-analytics/analytics/kafkaconnect-create-connector)
+                + [Replicate topics with Kafka MirrorMaker](public-cloud/data-analytics/analytics/mirrormaker-replicate-topics)
             + [Configuration](public-cloud-data-analytics-kafka-configuration)
                 + [Maintenance operations for Analytics](public-cloud/data-analytics/analytics/maintenance)
                 + [Configure the advanced parameters for Analytics](public-cloud/data-analytics/analytics/advanced-configuration)
