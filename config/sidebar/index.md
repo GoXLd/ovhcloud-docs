@@ -1754,12 +1754,11 @@
             + [2. Organize data](public-cloud/data-platform/getting-started-organize-data){label=2. Organize data}
             + [3. Prepare data](public-cloud/data-platform/getting-started-prepare-data){label=3. Prepare data}
             + [4. Create queries](public-cloud/data-platform/getting-started-create-queries){label=4. Create queries}
-            + [5. Expose through API](public-cloud/data-platform/getting-started-expose-api){label=5. Expose through API}
-            + [6. Visualize data](public-cloud/data-platform/getting-started-visualize-data){label=6. Visualize data}
+            + [5. Expose and visualise](public-cloud/data-platform/getting-started-expose-and-visualize){label=5. Expose and visualise}
         + [Tutorials](public-cloud-data-platform-tutorials){landing=public-cloud/data-platform/landing-page-tutorials}
             + [Your project checklist](public-cloud/data-platform/tutorials-project-checklist){label=Your project checklist}
             + [Project setup & configuration](public-cloud-data-platform-project-setup-and-configuration){landing=public-cloud/data-platform/landing-page-tutorials-project-setup}
-                + [Customize your first app](public-cloud/data-platform/tutorials-customize-first-app){label=Customize your first app}
+                + [Customise your first app](public-cloud/data-platform/tutorials-customize-first-app){label=Customise your first app}
                 + [Develop your own app](public-cloud-data-platform-develop-your-own-app){landing=public-cloud/data-platform/tutorials-app-development}
                     + [1. Build with an external repo](public-cloud/data-platform/tutorials-app-development-build){label=1. Build with an external repo}
                     + [2. Discover the config files](public-cloud/data-platform/tutorials-app-development-config){label=2. Discover the config files}

@@ -11258,14 +11258,14 @@
     "pl": "4. Create queries",
     "pt": "4. Create queries"
   },
-  "sidebar.gen.publicCloudDataPlatformGettingStartedExposeApi": {
-    "fr": "5. Exposer via une API",
-    "en": "5. Expose through API",
-    "de": "5. Expose through API",
-    "es": "5. Expose through API",
-    "it": "5. Expose through API",
-    "pl": "5. Expose through API",
-    "pt": "5. Expose through API"
+  "sidebar.gen.publicCloudDataPlatformGettingStartedExposeAndVisualize": {
+    "fr": "5. Exposer et visualiser",
+    "en": "5. Expose and visualise",
+    "de": "5. Expose and visualise",
+    "es": "5. Expose and visualise",
+    "it": "5. Expose and visualise",
+    "pl": "5. Expose and visualise",
+    "pt": "5. Expose and visualise"
   },
   "sidebar.gen.publicCloudDataPlatformGettingStartedOrganizeData": {
     "fr": "2. Organiser les données",
@@ -11284,15 +11284,6 @@
     "it": "3. Prepare data",
     "pl": "3. Prepare data",
     "pt": "3. Prepare data"
-  },
-  "sidebar.gen.publicCloudDataPlatformGettingStartedVisualizeData": {
-    "fr": "6. Visualiser les données",
-    "en": "6. Visualize data",
-    "de": "6. Visualize data",
-    "es": "6. Visualize data",
-    "it": "6. Visualize data",
-    "pl": "6. Visualize data",
-    "pt": "6. Visualize data"
   },
   "sidebar.gen.publicCloudDataPlatformHubspot": {
     "fr": "HubSpot",
@@ -11836,12 +11827,12 @@
   },
   "sidebar.gen.publicCloudDataPlatformTutorialsCustomizeFirstApp": {
     "fr": "Personnaliser votre première application",
-    "en": "Customize your first app",
-    "de": "Customize your first app",
-    "es": "Customize your first app",
-    "it": "Customize your first app",
-    "pl": "Customize your first app",
-    "pt": "Customize your first app"
+    "en": "Customise your first app",
+    "de": "Customise your first app",
+    "es": "Customise your first app",
+    "it": "Customise your first app",
+    "pl": "Customise your first app",
+    "pt": "Customise your first app"
   },
   "sidebar.gen.publicCloudDataPlatformTutorialsEcommerceSalesSupersetDashboard": {
     "fr": "Construire un dashboard des ventes d'une boutique en ligne dans Superset",
