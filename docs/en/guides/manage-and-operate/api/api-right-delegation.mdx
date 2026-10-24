@@ -1,7 +1,7 @@
 ---
 title: How to manage a customer’s account via OVHcloud API
 description: Find out how to create an application and manage services for your customers
-lastUpdated: 2026-07-17
+lastUpdated: 2026-10-24
 ---
 
 ## Objective
@@ -69,7 +69,7 @@ Example with curl with an access request to `GET /me`.
 export AK=F7gzxgxN5eqwuAsK
 export REDIRECT_URL=https://webhook.site/586c652e-061e-453f-bd71-51912e33419d # usefull for debug
 
-curl -H "Content-type: application/json" -H "X-Ovh-Application: $AK" -d '{"redirection": "$REDIRECT_URL", "accessRules": [{"method": "GET", "path": "/me"}]}' https://api.eu.ovhcloud.com/1.0/auth/credential
+curl -H "Content-type: application/json" -H "X-Ovh-Application: $AK" -d "{\"redirection\": \"${REDIRECT_URL}\", \"accessRules\": [{\"method\": \"GET\", \"path\": \"/me\"}]}" https://api.eu.ovhcloud.com/1.0/auth/credential
 ```
 
 The result of that call will be a JSON dictionary
