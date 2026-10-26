@@ -1,7 +1,7 @@
 ---
 title: Managing tokens
 description: Find out how to use tokens with the Keystone API
-lastUpdated: 2026-10-25
+lastUpdated: 2026-10-26
 ---
 
 ## Objective
@@ -174,9 +174,9 @@ There are many libraries in different languages. For more information, see [the 
 
 ```bash
 curl -i -X DELETE \
-  -H "X-Auth-Token: $OS_TOKEN" \
-  -H "X-Subject-Token: $OS_TOKEN" \
-  "http://localhost:5000/v3/auth/tokens"
+  -H "X-Auth-Token: $token" \
+  -H "X-Subject-Token: $token" \
+  "${OS_AUTH_URL}v${OS_IDENTITY_API_VERSION}/auth/tokens"
 ```
 
 If there’s no error then the response is empty.
